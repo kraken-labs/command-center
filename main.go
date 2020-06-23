@@ -12,7 +12,9 @@ import (
 )
 
 type Base struct {
-	ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
+	ID uuid.UUID `gorm:"primary_key; unique; 
+						type:uuid; column:id; 
+						default:uuid_generate_v4()`
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt *time.Time `sql:"index"`
